@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Pinturas - Profissional em Pintura Predial e Residencial</title>
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: #34495e;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f1c40f;
+        }
+        
+        /* Banner Principal */
+        .banner {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585152220-90363fe7e115');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .banner-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .banner-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #f39c12;
+        }
+        
+        /* Seções */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: #2c3e50;
+        }
+        
+        /* Serviços */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .service-card {
+            flex-basis: calc(33.333% - 20px);
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 15px;
+        }
+        
+        /* Sobre */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Portfólio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(44, 62, 80, 0.9);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Depoimentos */
+        .testimonials {
+            background-color: #ecf0f1;
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        /* Contato */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            color: white;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #f1c40f;
+        }
+        
+        .copyright {
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .service-card {
+                flex-basis: calc(50% - 15px);
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .service-card {
+                flex-basis: 100%;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">Thomas Pinturas</div>
+            <div class="slogan">Transformando ambientes com qualidade e expertise</div>
+        </div>
+    </header>
+    
+    <!-- Navegação -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Banner Principal -->
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h1>Pintura Profissional para seu Imóvel</h1>
+            <p>Soluções completas em pintura predial e residencial</p>
+            <a href="#contact" class="btn">Solicite um Orçamento</a>
+        </div>
+    </section>
+    
+    <!-- Serviços -->
+    <section id="services" class="container">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Pintura Residencial</h3>
+                <p>Transforme sua casa com nossos serviços de pintura interna e externa, utilizando os melhores materiais e técnicas do mercado.</p>
+                <p>Inclui preparação de superfície, aplicação de massa corrida, selador e tinta de alta qualidade.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Pintura Predial</h3>
+                <p>Serviço especializado para edifícios residenciais e comerciais, com equipe treinada em trabalhos em altura e segurança.</p>
+                <p>Utilizamos equipamentos profissionais e produtos específicos para fachadas.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Texturas e Efeitos</h3>
+                <p>Aplicação de texturas decorativas, efeitos especiais e pinturas artísticas para personalizar seus ambientes.</p>
+                <p>Marmorizado, envelhecido, spatulado e outras técnicas exclusivas.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Impermeabilização</h3>
+                <p>Proteja sua construção contra infiltrações e umidade com nossos serviços de impermeabilização de lajes e paredes.</p>
+                <p>Soluções específicas para cada tipo de problema.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Pintura de Fachadas</h3>
+                <p>Revitalização completa de fachadas com técnicas profissionais que garantem durabilidade e proteção contra intempéries.</p>
+                <p>Inclui limpeza, reparos e aplicação de produtos específicos.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Consultoria em Cores</h3>
+                <p>Ajudamos você a escolher as melhores cores e combinações para seu projeto, considerando iluminação, arquitetura e estilo.</p>
+                <p>Visita técnica e apresentação de amostras no local.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sobre -->
+    <section id="about" class="container">
+        <h2 class="section-title">Sobre Nós</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Com mais de 15 anos de experiência no mercado, a Master Pinturas se consolidou como referência em serviços de pintura predial e residencial na região.</p>
+                <p>Nossa equipe é formada por profissionais qualificados e comprometidos com a excelência em cada projeto. Utilizamos apenas materiais de primeira linha e seguimos rigorosos padrões de qualidade em todos os nossos serviços.</p>
+                <p>O que nos diferencia:</p>
+                <ul>
+                    <li>Atendimento personalizado</li>
+                    <li>Compromisso com prazos</li>
+                    <li>Transparência nos orçamentos</li>
+                    <li>Garantia em todos os serviços</li>
+                    <li>Limpeza e organização no canteiro de obras</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968" alt="Equipe de pintura trabalhando">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfólio -->
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Nossos Trabalhos</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92" alt="Projeto Residencial">
+                <div class="portfolio-overlay">
+                    <h3>Residência Alphaville</h3>
+                    <p>Pintura completa interna e externa</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Projeto Comercial">
+                <div class="portfolio-overlay">
+                    <h3>Edifício Comercial Centro</h3>
+                    <p>Pintura de fachada e áreas comuns</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600566752229-250ed79470f8" alt="Projeto de Textura">
+                <div class="portfolio-overlay">
+                    <h3>Residência Jardins</h3>
+                    <p>Aplicação de textura decorativa</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Projeto de Fachada">
+                <div class="portfolio-overlay">
+                    <h3>Condomínio Lagoa</h3>
+                    <p>Revitalização de fachada</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Projeto de Efeito Especial">
+                <div class="portfolio-overlay">
+                    <h3>Loja de Decoração</h3>
+                    <p>Pintura com efeito marmorizado</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Projeto de Impermeabilização">
+                <div class="portfolio-overlay">
+                    <h3>Residência Moema</h3>
+                    <p>Impermeabilização de laje</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Depoimentos -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Depoimentos de Clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Contratei a Master Pinturas para reformar minha casa e fiquei impressionado com a qualidade do serviço. O prazo foi cumprido rigorosamente e o acabamento ficou perfeito."
+                    </div>
+                    <div class="testimonial-author">- Carlos Silva, Residencial Green Valley</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Excelente atendimento e profissionalismo. Fizeram um trabalho impecável na pintura do nosso prédio comercial, com atenção aos detalhes e cuidado com o patrimônio."
+                    </div>
+                    <div class="testimonial-author">- Ana Paula Rocha, Edifício Business Center</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Recomendo a Master Pinturas pela honestidade no orçamento, qualidade dos materiais utilizados e competência da equipe. Superou minhas expectativas!"
+                    </div>
+                    <div class="testimonial-author">- Roberto Mendes, Residência Vila Nova</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contato -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Serviço de Interesse:</label>
+                    <select id="service" name="service">
+                        <option value="residencial">Pintura Residencial</option>
+                        <option value="predial">Pintura Predial</option>
+                        <option value="texturas">Texturas e Efeitos</option>
+                        <option value="impermeabilizacao">Impermeabilização</option>
+                        <option value="fachadas">Pintura de Fachadas</option>
+                        <option value="consultoria">Consultoria em Cores</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Master Pinturas</h3>
+                    <p>Profissionalismo e qualidade em serviços de pintura predial e residencial.</p>
+                </div>
+                
+                <div class="footer-section contact-info">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> (91) 9999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@masterpinturas.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> belem - pa</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Master Pinturas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Ícones (usando CDN do Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Script simples para o formulário -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu contato! Retornaremos em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
